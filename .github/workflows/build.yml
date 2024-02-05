@@ -31,8 +31,4 @@ jobs:
         with:
           name: Fabric and Forge ${{ matrix.minecraft }}
           path: build/release/
-  crowdin:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@main
+  
