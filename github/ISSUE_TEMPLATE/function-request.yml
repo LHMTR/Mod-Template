@@ -1,0 +1,21 @@
+name: 新功能请求|Function Request
+description: 欢迎您给我们提出建议！我们可能会把您的建议放入To do Project中，如果您会编码，请直接fork我们的存储库并提交|You are welcome to give us suggestions! We may put your suggestion into the To do Project. If you can encode, please fork our repository directly and submit it.
+
+title: "[Mod version]: "
+labels: ["bug", "triage"]
+projects: ["LHMTR/18"]
+assignees:
+  - YYLWZDXPGD
+body:
+  - type: markdown
+    attributes:
+      value: |
+        填写您想要添加的功能(最好附上图片)|Fill in the functions you want added (preferably with pictures)(如果有捐款凭证请一起提交)(If there is a donation voucher, please submit it together)
+   - type: input
+     id: contact
+     attributes:
+      label: Contact Details
+      description: 请留下您的电子邮件以方便我们联系|Please leave your email so that we can contact you.
+      placeholder: email@example.com
+    validations:
+      required: false

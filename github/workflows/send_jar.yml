@@ -1,0 +1,48 @@
+name: Send JAR
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  build_and_send:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Check if branch matches trigger conditions
+        run: |
+          if [[ ${{ github.ref }} =~ ^refs/heads/v || ${{ github.ref }} =~ -patch ]]; then
+          echo "Branch matches trigger conditions."
+          else
+          echo "Branch does not match trigger conditions. Exiting..."
+          exit 0
+          fi
+
+      - name: Download necessary files
+        run: |
+          mkdir -p fabric
+          cp -r main/fabric/* fabric/
+          cp -r main/gradle/* .
+          find . -type f ! -name '*.yml' -exec cp {} . \;
+
+      - name: Extract src and build.gradle
+        run: |
+          mkdir extracted_files
+          cp -r fabric/src extracted_files/
+          cp fabric/build.gradle extracted_files/
+
+      - name: Compile Java files
+        run: |
+          javac -d compiled_files extracted_files/src/**/*.java
+
+      - name: Create JAR file
+        run: |
+          jar cf my_app.jar -C compiled_files .
+
+      - name: Send JAR file via email
+        run: |
+          echo "Sending JAR file to XPGD_LHMTR@outlook.com..."

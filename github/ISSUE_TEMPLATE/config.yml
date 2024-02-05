@@ -1,0 +1,7 @@
+blank_issues_enabled: false
+contact_links:
+  - name: LHMTR Discussion
+    url: https://github.com/orgs/LHMTR/discussions
+    about: Please ask and answer questions here.
+  - name: LHMTR Pages
+    url: https://lhmtr.github.io/

@@ -1,0 +1,51 @@
+name: 报告问题｜Bug Report
+description: File a bug report
+title: "[Mod Version][Bug]: "
+labels: ["bug"]
+projects: ["LHMTR/18"]
+assignees:
+  - YYLWZDXPGD
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请确认您使用的Minecraft版本在我们支持的版本之间,确认提交issue即代表您同意我们的条款与条件|Please confirm that the version of Minecraft you are using is between the versions we support. By submitting the issue, you agree to our terms and conditions.
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: 请留下您的电子邮件以方便我们联系|Please leave your email so that we can contact you.
+      placeholder: email@example.com
+    validations:
+      required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 发生了什么?|What happened?
+      description: 模组做出了什么不应该出现的行为?|Also tell us, what did you expect to happen?
+      placeholder: Tell us what you see!
+      value: "A bug happened!"
+    validations:
+      required: true
+  - type: dropdown
+    id: mcversion
+    attributes:
+      label: 模组版本|Mod Version
+      description: 您使用的模组版本是哪个?|Which mod version are you using?
+      options:
+        - Beta
+        - Alpha1.0
+      default: 0
+    validations:
+      required: true
+  - type: dropdown
+    id: modversion
+    attributes:
+      label: MTR模组版本|Minecraft Transit Raiway Mod Version
+      description: 您使用的MTR版本是哪个|Which Minecraft Transit Railway version are you using?
+      options:
+        - >4.0.0
+        - 4.0.0
+      default: 0
+    validations:
+      required: true
